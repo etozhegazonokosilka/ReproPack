@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+
+# virtual environments
+.venv/
+venv/
+
+# test and type-checker caches
+.coverage
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+
+# build artifacts
+build/
+dist/
+
+# diagnostic output
+repropack-report.zip
+report.json
+report.html
+
+# editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# local secrets
+.env
+.env.*
+!.env.example
+
+# local notes
+ttt.txt
