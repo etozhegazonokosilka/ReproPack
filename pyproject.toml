@@ -43,3 +43,6 @@ files = ["src"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+repropack = ["reports/templates/*.j2"]
