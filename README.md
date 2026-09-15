@@ -13,35 +13,72 @@ files, environment files, Git remotes, diffs, or common credentials.
 ## Installation
 
 ReproPack currently installs from source and requires Python 3.12 or newer.
+Git is optional, but it must be installed and available on `PATH` when you want
+Git metadata in a report.
+
+Clone the repository on any supported platform:
 
 ```bash
 git clone https://github.com/etozhegazonokosilka/ReproPack.git
 cd ReproPack
+```
+
+### macOS, Linux, and WSL
+
+```bash
 python3.12 -m venv .venv
 .venv/bin/python -m pip install --upgrade pip
 .venv/bin/python -m pip install -e .
 ```
 
+### Windows PowerShell
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -e .
+```
+
+If the Python Launcher is unavailable, replace `py -3.12` with the path to
+your Python 3.12 executable.
+
 ## Usage
 
 Run ReproPack from the project that has the problem:
+
+### macOS, Linux, and WSL
 
 ```bash
 .venv/bin/repropack .
 ```
 
+### Windows PowerShell
+
+```powershell
+.\.venv\Scripts\repropack.exe .
+```
+
 The command creates `repropack-report.zip` in the current directory. To choose
-another location or replace an existing archive:
+another location or replace an existing archive, use the syntax for your shell:
 
 ```bash
 .venv/bin/repropack /path/to/project --output /path/to/repropack-report.zip
 .venv/bin/repropack . --output repropack-report.zip --overwrite
 ```
 
-Inspect the archive with Python if `unzip` is unavailable:
+```powershell
+.\.venv\Scripts\repropack.exe C:\path\to\project --output C:\path\to\repropack-report.zip
+.\.venv\Scripts\repropack.exe . --output repropack-report.zip --overwrite
+```
+
+Inspect the archive with Python on every supported platform:
 
 ```bash
 python -m zipfile -l repropack-report.zip
+```
+
+```powershell
+.\.venv\Scripts\python.exe -m zipfile -l repropack-report.zip
 ```
 
 The archive always contains:
@@ -86,7 +123,7 @@ contents are never read.
 
 ## Development
 
-Install development tools and run the checks:
+Install development tools and run the checks on macOS, Linux, or WSL:
 
 ```bash
 .venv/bin/python -m pip install -e '.[dev]'
@@ -94,6 +131,16 @@ Install development tools and run the checks:
 .venv/bin/python -m ruff check .
 .venv/bin/python -m ruff format --check .
 .venv/bin/python -m mypy src
+```
+
+On Windows PowerShell, run:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e '.[dev]'
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m ruff format --check .
+.\.venv\Scripts\python.exe -m mypy src
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines and

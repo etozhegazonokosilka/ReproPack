@@ -8,14 +8,23 @@ Thanks for taking the time to improve ReproPack.
 2. Keep changes small and include tests for changed behavior.
 3. Use English for code, documentation, messages, and comments.
 4. Do not add real secrets, `.env` files, generated reports, or personal data.
-5. Run the complete check suite:
+5. Run the complete check suite. On macOS, Linux, or WSL:
 
-```bash
-.venv/bin/python -m pytest -q
-.venv/bin/python -m ruff check .
-.venv/bin/python -m ruff format --check .
-.venv/bin/python -m mypy src
-```
+   ```bash
+   .venv/bin/python -m pytest -q
+   .venv/bin/python -m ruff check .
+   .venv/bin/python -m ruff format --check .
+   .venv/bin/python -m mypy src
+   ```
+
+   On Windows PowerShell:
+
+   ```powershell
+   .\.venv\Scripts\python.exe -m pytest -q
+   .\.venv\Scripts\python.exe -m ruff check .
+   .\.venv\Scripts\python.exe -m ruff format --check .
+   .\.venv\Scripts\python.exe -m mypy src
+   ```
 
 ## Design principles
 
